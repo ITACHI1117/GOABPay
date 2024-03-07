@@ -16,7 +16,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 
-const SignUp = ({ navigation }) => {
+const Login = ({ navigation }) => {
   const { colors } = useTheme();
   return (
     <SafeAreaView>
@@ -45,8 +45,7 @@ const SignUp = ({ navigation }) => {
                 textAlign: "center",
               }}
             >
-              Immediately Feel {"\n"} The Ease of Transacting Just by
-              Registering
+              Welcome Back {"\n"} to GOAB Pay Wallet
             </Text>
 
             <Text
@@ -58,7 +57,7 @@ const SignUp = ({ navigation }) => {
                 paddingBottom: 20,
               }}
             >
-              Sign up with
+              Login with
             </Text>
             <View
               style={{
@@ -92,29 +91,7 @@ const SignUp = ({ navigation }) => {
                   placeholderTextColor={colors.placeholder}
                 />
               </View>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "co",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  height: 100,
-                  width: "98%",
-                }}
-              >
-                <MaterialIcons
-                  name="email"
-                  size={24}
-                  color="#6E34B8"
-                  style={{ position: "absolute", zIndex: 1, left: 30, top: 23 }}
-                />
-                <TextInput
-                  textContentType="emailAddress"
-                  style={[styles.textInput, { color: colors.placeholder }]}
-                  placeholder="Email"
-                  placeholderTextColor={colors.placeholder}
-                />
-              </View>
+
               <View
                 style={{
                   display: "flex",
@@ -143,17 +120,17 @@ const SignUp = ({ navigation }) => {
                 style={styles.button}
                 onPress={() => navigation.replace("Home")}
               >
-                <Text style={{ color: "white", fontSize: 22 }}>Register</Text>
+                <Text style={{ color: "white", fontSize: 22 }}>Login</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={{ paddingTop: 20 }}
-                onPress={() => navigation.navigate("Login")}
+                onPress={() => navigation.goBack()}
               >
                 <Text
                   style={{ color: "#959598", fontSize: 15, paddingBottom: 20 }}
                 >
-                  You have an account?
-                  <Text style={{ color: "#2DA6FF" }}> Login</Text>
+                  Don't have an account yet?
+                  <Text style={{ color: "#2DA6FF" }}> Register</Text>
                 </Text>
               </TouchableOpacity>
             </View>
@@ -164,8 +141,7 @@ const SignUp = ({ navigation }) => {
   );
 };
 
-export default SignUp;
-
+export default Login;
 const styles = StyleSheet.create({
   textInput: {
     backgroundColor: "#EDF0F7",

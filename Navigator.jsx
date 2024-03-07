@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useTheme } from "@react-navigation/native";
 import { Appearance, StatusBar } from "react-native";
 import SignUp from "./screens/Registration/SignUp";
+import Login from "./screens/Registration/Login";
+import Home from "./screens/Registration/Home/Home";
 
 function Navigator() {
   const Stack = createNativeStackNavigator();
@@ -52,15 +54,22 @@ function Navigator() {
       <StatusBar animated={true} barStyle={colors.text} />
       <Stack.Navigator>
         <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ title: null, headerShown: false }}
+        />
+        <Stack.Screen
           name="SignUp"
           component={SignUp}
           options={{ title: null, headerShown: false }}
         />
-        {/* <Stack.Screen
-        name="CreateAccount"
-        component={CreateAccount}
-        options={{ title: null, headerShown: false }}
-      />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ title: null, headerShown: false }}
+        />
+
+        {/*
       <Stack.Screen
         name="ResetPassword"
         component={ResetPassword}
@@ -74,11 +83,6 @@ function Navigator() {
       <Stack.Screen
         name="NewPassword"
         component={NewPassword}
-        options={{ title: null, headerShown: false }}
-      />
-      <Stack.Screen
-        name="Home"
-        component={Home}
         options={{ title: null, headerShown: false }}
       />
       <Stack.Screen
